@@ -9,18 +9,27 @@
 int main(void)
 {
 	int i;
-	long t1, t2, next;
+	long t1, t2;
 
-	t1 = 0;
-	t2 = 1;
-	next = t1 + t2;
+	t1 = 1;
+	t2 = 2;
 
-	for (i = 3; i <= 52; ++i)
+	for (i = 0; i < 50; ++i)
 	{
-		printf("%ld, ", next);
-		t1 = t2;
-		t2 = next;
-		next = t1 + t2;
+		if (i == 0)
+		{
+			printf("%ld", t1);
+		}
+		else if (i == 1)
+		{
+			printf(", %ld", t2);
+		}
+		else
+		{
+			t2 = t1 + t2;
+			t1 = t2 - t1;
+			printf(", %ld", t2);
+		}
 	}
 
 	printf("\n");
