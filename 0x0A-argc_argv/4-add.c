@@ -31,12 +31,9 @@ int main(int argc, char *argv[])
 					printf("Error\n");
 					return (1);
 				}
-				else
-				{
-					sum += atoi(s);
-					s++;
-				}
 			}
+			sum += atoi(s);
+			s++;
 		}
 		printf("%d\n", sum);
 	}
