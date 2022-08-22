@@ -40,7 +40,7 @@ void copy_file(const char *from, const char *to)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", from);
 		exit(98);
 	}
-	fdw = open(to, O_CREAT | O_WRONLY | O_TRUNC, 0700);
+	fdw = open(to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	while ((seen = read(fdr, buf, 1024)) > 0)
 	{
 		if (write(fdw, buf, seen) != seen || fdw == -1)
@@ -64,5 +64,4 @@ void copy_file(const char *from, const char *to)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fdw);
 		exit(100);
 	}
-
 }
